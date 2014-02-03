@@ -45,3 +45,6 @@ Acesse o arquivo yii/public_html/protected/config/mail.php e configure o acesso 
 		),
 ```
 
+Dados para Login:
+Usuário: admin
+Senha: admin
