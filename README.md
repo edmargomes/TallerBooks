@@ -6,11 +6,9 @@ Aplicação para teste técnico na empresa Taller.
 Configurando Banco de Dados
 ---------------------------
 Primeiramente é necessário criar a tabela abaixo, em seguida escolher uma das versões "Yii Framework" ou "Drupal"
-Arquivo: 
+Arquivo: database/taller_books
 
 ```bash
-CREATE SCHEMA IF NOT EXISTS `taller_books` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `taller_books` ;
 
 -- -----------------------------------------------------
 -- Table `taller_books`.`books`
@@ -22,8 +20,8 @@ CREATE TABLE IF NOT EXISTS `taller_books`.`books` (
   `author` VARCHAR(60) NOT NULL,
   `publish` VARCHAR(45) NOT NULL,
   `edition` VARCHAR(45) NOT NULL,
-  `year` INT NOT NULL,
-  `isnational` TINYINT(1) NOT NULL DEFAULT true,
+  `year` INT(4) NOT NULL,
+  `origin` VARCHAR(13) NOT NULL DEFAULT 'Nacional',
   `include_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -31,4 +29,19 @@ ENGINE = InnoDB;
 
 Versão Yii Framework
 ---------------------
-Pasta Yii Frameworks
+Necessário ter o Yii Framework 1.1.14 http://www.yiiframework.com/download/
+Coloque a pasta "yii-1.1.14" um nível acima dos arquivos contidos em yii/public_html
+Exemplo: c:\xampp\htdocs\yii-1.1.14 e c:\xampp\htdocs\tallerbooks
+
+Acesse o arquivo yii/public_html/protected/config/mail.php e configure o acesso ao banco de dados com as suas informações
+
+```bash
+'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=taller_books',
+			'emulatePrepare' => true,
+			'username' => 'root',
+			'password' => '',
+			'charset' => 'utf8',
+		),
+```
+

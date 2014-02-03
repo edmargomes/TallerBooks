@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS `taller_books`.`books` (
   `author` VARCHAR(60) NOT NULL,
   `publish` VARCHAR(45) NOT NULL,
   `edition` VARCHAR(45) NOT NULL,
-  `year` INT NOT NULL,
-  `isnational` TINYINT(1) NOT NULL DEFAULT true,
+  `year` INT(4) NOT NULL,
+  `origin` VARCHAR(13) NOT NULL DEFAULT 'Nacional',
   `include_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
